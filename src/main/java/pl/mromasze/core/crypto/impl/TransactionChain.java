@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class TransactionChain implements ITransactionChain {
-    private static TransactionChain instance = null;
+    private static TransactionChain instance = new TransactionChain();
     private final List<ITransaction> transactions;
 
     private TransactionChain() {
@@ -16,8 +16,6 @@ public class TransactionChain implements ITransactionChain {
     }
 
     public static TransactionChain getInstance() {
-        if (instance == null)
-            instance = new TransactionChain();
         return instance;
     }
 

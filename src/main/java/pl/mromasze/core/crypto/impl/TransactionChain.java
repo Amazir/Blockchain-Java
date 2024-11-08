@@ -15,9 +15,7 @@ public class TransactionChain implements ITransactionChain {
         transactions = new ArrayList<>();
     }
 
-    public static TransactionChain getInstance() {
-        return instance;
-    }
+    public static TransactionChain getInstance() {return instance;}
 
     @Override
     public void addTransaction(double amount) {
@@ -34,8 +32,7 @@ public class TransactionChain implements ITransactionChain {
             nonce++;
         } while (!hash.endsWith("00000"));
 
-        Transaction transaction = new Transaction(amount, lastTransactionHash, nonce - 1);
-        transactions.add(transaction);
+        transactions.add(new Transaction(amount, lastTransactionHash, nonce - 1));
     }
 
     @Override
